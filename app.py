@@ -1,6 +1,6 @@
 # imports
 from flask import Flask, request, session, g, redirect, url_for, \
-     abort, render_template, flash, jsonify
+    abort, render_template, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import os
 
@@ -89,6 +89,7 @@ def delete_entry(post_id):
         result = {'status': 0, 'message': repr(e)}
     return jsonify(result)
 
+
 @app.route('/search/', methods=['GET'])
 def search():
     query = request.args.get("query")
@@ -96,6 +97,7 @@ def search():
     if query:
         return render_template('search.html', entries=entries, query=query)
     return render_template('search.html')
+
 
 if __name__ == '__main__':
     app.run()
