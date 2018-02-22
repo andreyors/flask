@@ -11,6 +11,11 @@ python:
 install:
   - pip install -r requirements.txt
 
-script:
+before_script:
   - python create_db.py
+
+script:
   - python app-test.py
+
+notifications:
+  email: false
